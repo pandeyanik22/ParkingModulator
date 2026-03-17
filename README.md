@@ -1,160 +1,141 @@
-# ParkingModulator 🚗
+🚗 ParkingModulator
 
-ParkingModulator is a **Spring Boot backend application** designed to manage parking operations such as customer registration, vehicle management, parking passes, and pricing rules.
+A backend system for managing a real-world parking ecosystem — built using Java, Spring Boot, and MySQL.
+This project simulates how modern parking platforms handle users, vehicles, passes, pricing, and transactions at scale.
 
-The system simulates a real-world parking management backend where users can register vehicles, purchase parking passes, and manage parking lot pricing and offers.
+📌 About the Project
 
----
+ParkingModulator is designed to model a complete parking management system from scratch.
+The idea was to go beyond simple CRUD APIs and build something closer to how actual parking platforms work in production.
 
-## 🚀 Features
+It supports:
 
-* Customer registration and management
-* Vehicle management for customers
-* One-time parking pass generation
-* Monthly parking pass system
-* Parking lot management
-* Dynamic pricing and pricing exceptions
-* Offer management for parking services
-* Payment method handling
+Customer and vehicle management
 
----
+One-time and monthly parking passes
 
-## 🛠 Tech Stack
+Dynamic pricing and offers
 
-* **Java**
-* **Spring Boot**
-* **Spring Data JPA / Hibernate**
-* **Maven**
-* **REST APIs**
-* **H2 / MySQL (Database)**
+Clean API structure following REST principles
 
----
+The project focuses on clean architecture, scalability, and real-world backend design.
 
-## 📂 Project Structure
+⚙️ Tech Stack
 
-```
-src/main/java/com/parkingmodulator
+Language: Java 17
 
-├── controller
-│   └── Handles REST API requests
-│
-├── service
-│   └── Business logic layer
-│
-├── repository
-│   └── Database interaction using Spring Data JPA
-│
-├── entity
-│   └── JPA entities representing database tables
-│
-└── ParkingModulatorApplication.java
-```
+Framework: Spring Boot
 
----
+ORM: Hibernate / Spring Data JPA
 
-## 🗄 Core Entities
+Database: MySQL
 
-The system contains several entities that represent the parking ecosystem:
+Build Tool: Maven
 
-* **Customer** – Stores customer details
-* **Vehicle** – Stores vehicle information linked to customers
-* **ParkingLot** – Represents parking locations
-* **ParkingOneTimePass** – One-time parking entry pass
-* **ParkingMonthlyPass** – Monthly subscription parking pass
-* **PaymentMethod** – Payment details used for parking
-* **Offers** – Discounts available for parking
-* **PricingException** – Special pricing rules
+API Style: REST
 
----
+🧩 System Design
 
-## 📡 Example API Endpoints
+The application follows a layered architecture:
 
-### Create Customer
+Controller → Service → Repository → Database
 
-```
+This separation makes the system:
+
+Easy to maintain
+
+Testable
+
+Scalable for future features
+
+🏗️ Core Features
+👤 Customer & Vehicle Management
+
+Register customers
+
+Add and manage multiple vehicles per user
+
+🅿️ Parking Operations
+
+Issue one-time parking passes
+
+Manage monthly subscriptions
+
+Track parking lot availability
+
+💰 Pricing & Offers
+
+Dynamic pricing rules
+
+Special offers and exceptions
+
+📊 Data Modeling
+
+Designed 8+ entities including:
+
+Customer
+
+Vehicle
+
+ParkingLot
+
+Passes
+
+Offers
+
+Fully normalized relational schema
+
+🔗 Sample APIs
 POST /api/customers
-```
-
-### Add Vehicle
-
-```
-POST /api/vehicles
-```
-
-### Create One-Time Parking Pass
-
-```
 POST /api/parking/one-time-pass
-```
+GET  /api/parking-lots/{id}
 
-### Create Monthly Parking Pass
+All endpoints follow REST conventions and proper request/response structuring.
 
-```
-POST /api/parking/monthly-pass
-```
+🚀 Key Highlights
 
-### Get Parking Lot Details
+Built with real-world system design thinking
 
-```
-GET /api/parking-lots/{id}
-```
+Clean separation of concerns using layered architecture
 
----
+Handles multi-entity relationships efficiently
 
-## ▶️ Running the Project
+Designed keeping scalability and extensibility in mind
 
-1. Clone the repository
+Follows industry practices used in backend systems
 
-```
+📦 How to Run
+
+Clone the repository
+
 git clone https://github.com/pandeyanik22/ParkingModulator.git
-```
 
-2. Navigate to the project directory
+Navigate to project folder
 
-```
 cd ParkingModulator
-```
 
-3. Build the project
+Configure MySQL in application.properties
 
-```
-mvn clean install
-```
+Run the application
 
-4. Run the application
-
-```
 mvn spring-boot:run
-```
+📈 Future Improvements
 
-The application will start on:
+Add authentication & authorization (JWT)
 
-```
-http://localhost:8080
-```
+Introduce caching (Redis)
 
----
+Dockerize for easier deployment
 
-## 🧪 Future Improvements
+Add API rate limiting
 
-* Authentication & Authorization (JWT)
-* API documentation using Swagger
-* Unit and integration tests
-* Docker containerization
-* Redis caching
-* Parking slot allocation algorithm
+Implement real-time slot tracking
 
----
+🤝 Contributing
 
-## 👨‍💻 Author
+This is a personal learning project, but suggestions and improvements are always welcome.
 
-Developed by **Aniket Pandey**
+👨‍💻 Author
 
-GitHub:
-https://github.com/pandeyanik22
-
----
-
-## 📄 License
-
-This project is for **learning and demonstration purposes**.
+Aniket Deo Pandey
+Backend Java Developer
